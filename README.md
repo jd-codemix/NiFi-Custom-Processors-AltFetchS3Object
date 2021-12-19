@@ -3,20 +3,19 @@ Checks for the existence of an S3 file without erroring out if it does not exist
 
 Three new properties are available to set:
 1.	Include-content
-o	Retrieve file contents
-o	Default is True
+    * Retrieve file contents
+    * Default is True
 2.	Bulletin
-o	Invoke a bulletin if file does not exist
-o	Default is False
+    * Invoke a bulletin if file does not exist
+    * Default is False
 3.	Penalize
-o	Penalize flow if file does not exist
-o	Default is False
+    * Penalize flow if file does not exist
+    * Default is False
 
 
 Five new S3 attributes are set during runtime: 
-•	s3.key 		(key name)
-•	s3.exist 		(Boolean value of key existence)
-•	s3.message 		(success message or failure reason)
-•	s3.messagetype 	(exception type if failure)
-•	s3.statuscode 	(HTTP status code if failure)
-
+  * s3.key 		(key name)
+  * s3.exist 		(Boolean value of key existence)
+  * s3.message 		(success message or failure reason)
+  * s3.messagetype 	(exception type if failure)
+  * s3.statuscode 	(HTTP status code if failure)
