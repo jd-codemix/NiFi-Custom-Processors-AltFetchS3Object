@@ -1,15 +1,22 @@
 # NiFi-Custom-Processors-AltFetchS3Object
-Retrieves the contents of an S3 Object,  only if the S3 Object exist, and writes it to the content of a FlowFile. 
-Several custom S3 attributes are set. Three new custom properties such as (bulletin, penalize and include-content) are available to set.
+Checks for the existence of an S3 file without erroring out if it does not exist. Existence status is returned in the attribute s3.exist.
+
+Three new properties are available to set:
+1.	Include-content
+o	Retrieve file contents
+o	Default is True
+2.	Bulletin
+o	Invoke a bulletin if file does not exist
+o	Default is False
+3.	Penalize
+o	Penalize flow if file does not exist
+o	Default is False
 
 
-New Custom Attributes: 
-s3.exist: Boolean (true/false) value of S3 key existance
-s3.message: Exception reason
-s3.messagetype: Exception type
-s3.statuscode: HTTP status code
+Five new S3 attributes are set during runtime: 
+•	s3.key 		(key name)
+•	s3.exist 		(Boolean value of key existence)
+•	s3.message 		(success message or failure reason)
+•	s3.messagetype 	(exception type if failure)
+•	s3.statuscode 	(HTTP status code if failure)
 
-New Custom Properties:
-bullentin: only except True/False value. True will involk a bullentin if the file does not exist. False will not involk a bullentin. The custom attribute 's3.exist' will be set to true or false.
-penalize: only except True/False value. True will involk a penalization if the file does not exist. False will not involk a penalization.
-include-content: only except True/False value. If True, fetch file content if file exist. If False, will not fetch file content. Mainly used in conjunction with Attribute 's3.exist' to check if a file exist but don't need the content.
